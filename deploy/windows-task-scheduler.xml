@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<!--
+  gedi-proxy Windows Task Scheduler
+  Avvia gedi-proxy al login utente, sempre in background.
+  Riavvio automatico se crasha (3 tentativi, ogni 1 minuto).
+
+  Installazione:
+    schtasks /Create /TN "EasyWay\gedi-proxy" /XML deploy\windows-task-scheduler.xml /F
+
+  Verifica:
+    schtasks /Query /TN "EasyWay\gedi-proxy" /FO LIST
+
+  Stop manuale:
+    schtasks /End /TN "EasyWay\gedi-proxy"
+-->
+<Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Description>GEDI proxy — intercetta risposte AI in streaming, rileva trigger GEDI (fix keyword, error repeat). Parte del framework EasyWay Testuggine GEDI.</Description>
+    <Author>EasyWay Platform</Author>
+    <Version>1.0.0</Version>
+  </RegistrationInfo>
+  <Triggers>
+    <LogonTrigger>
+      <Enabled>true</Enabled>
+    </LogonTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id="Author">
+      <LogonType>InteractiveToken</LogonType>
+      <RunLevel>LeastPrivilege</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>
+    <RestartOnFailure>
+      <Interval>PT1M</Interval>
+      <Count>3</Count>
+    </RestartOnFailure>
+    <Enabled>true</Enabled>
+  </Settings>
+  <Actions Context="Author">
+    <Exec>
+      <Command>python3</Command>
+      <Arguments>-m gedi_check.proxy --port 8765 --upstream https://api.anthropic.com</Arguments>
+      <WorkingDirectory>C:\old\easyway\gedi-check</WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>
