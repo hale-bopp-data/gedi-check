@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "profile": "prod",
+    "card": "🔴 Sentinella",
+    "description": "Ambiente di produzione. Massima protezione. Ogni azione è visibile agli utenti reali. La soglia di tolleranza è minima — un workaround in prod è un debito che paga qualcun altro.",
+    "philosophy": "In prod non si sperimenta. Si deployano decisioni già prese e validate. I guardrail qui non chiedono — bloccano. Il costo di un errore è misurato in utenti, non in minuti.",
+    "auto_detect": {
+      "branches": ["main", "master", "production"],
+      "env_vars": ["ENV=prod", "ENVIRONMENT=production", "NODE_ENV=production"],
+      "path_hints": ["prod", "production", "release"]
+    }
+  },
+  "triggers": {
+    "fix_keyword": {
+      "enabled": true,
+      "mode": "block",
+      "notify_n8n": true,
+      "description": "BLOCCA. Un workaround in prod richiede approvazione esplicita."
+    },
+    "error_repeat": {
+      "enabled": true,
+      "threshold": 2,
+      "mode": "block",
+      "description": "Soglia ridotta: 2 ripetizioni = blocco. In prod non si aspetta la terza."
+    },
+    "no_options_question": {
+      "enabled": true,
+      "mode": "advisory",
+      "description": "Attivo: ogni decisione deve avere alternative documentate."
+    }
+  },
+  "abilities": [
+    "fix_keyword_block",
+    "fix_keyword_audit",
+    "error_repeat_2x",
+    "no_options_question_advisory"
+  ]
+}

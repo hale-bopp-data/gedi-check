@@ -102,10 +102,11 @@ def _save_error_log(log: dict) -> None:
         pass
 
 
-def record_error(exit_code: int, stderr_snippet: str = "") -> tuple[bool, int]:
+def record_error(exit_code: int, stderr_snippet: str = "", threshold: int = 3) -> tuple[bool, int]:
     """
     Registra un errore. Ritorna (should_block, count).
-    Blocca (exit 1) se lo stesso exit_code appare 3+ volte.
+    Blocca se lo stesso exit_code appare threshold+ volte.
+    Threshold configurabile dal profilo attivo (dev=5, ams=3, prod=2).
     """
     log = _load_error_log()
     key = str(exit_code)
@@ -116,7 +117,7 @@ def record_error(exit_code: int, stderr_snippet: str = "") -> tuple[bool, int]:
         entry["stderr"].append(stderr_snippet[:200])
     log[key] = entry
     _save_error_log(log)
-    return entry["count"] >= 3, entry["count"]
+    return entry["count"] >= threshold, entry["count"]
 
 
 ERROR_BLOCK_MESSAGE = """
