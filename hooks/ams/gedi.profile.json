@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "profile": "ams",
+    "card": "🟡 Guardiano",
+    "description": "Ambiente AMS (progetti interni EasyWay, agenti, piattaforma). Bilanciato: tutti i trigger attivi con soglie standard. Il lavoro è reale, gli errori hanno conseguenze.",
+    "philosophy": "In AMS lavoriamo su sistemi vivi. Un cerotto su un agente in produzione diventa un problema domani. I guardrail non sono ostacoli — sono colleghi che fanno le domande giuste.",
+    "auto_detect": {
+      "branches": ["develop", "staging", "release/*", "hotfix/*"],
+      "env_vars": ["ENV=ams", "ENVIRONMENT=ams", "ENV=staging"],
+      "path_hints": ["ams", "agents", "easyway", "platform"]
+    }
+  },
+  "triggers": {
+    "fix_keyword": {
+      "enabled": true,
+      "mode": "advisory",
+      "notify_n8n": true,
+      "description": "Advisory + notifica n8n per audit trail. Il fix viene tracciato."
+    },
+    "error_repeat": {
+      "enabled": true,
+      "threshold": 3,
+      "mode": "block",
+      "description": "Soglia standard: 3 ripetizioni = blocco. Regola Antifragile."
+    },
+    "no_options_question": {
+      "enabled": true,
+      "mode": "advisory",
+      "description": "Attivo: le domande agli agenti devono avere opzioni pre-calcolate."
+    }
+  },
+  "abilities": [
+    "fix_keyword_advisory",
+    "fix_keyword_audit",
+    "error_repeat_3x",
+    "no_options_question_advisory"
+  ]
+}

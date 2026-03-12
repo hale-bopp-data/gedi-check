@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "profile": "dev",
+    "card": "🟢 Esploratore",
+    "description": "Ambiente di sviluppo locale. Massima libertà di sperimentazione, guardrail leggeri. L'errore è parte del processo — l'importante è imparare, non bloccarsi.",
+    "philosophy": "In dev si prova, si rompe, si impara. I guardrail ricordano ma non bloccano. L'unico blocco reale è l'errore che si ripete troppo.",
+    "auto_detect": {
+      "branches": ["feat/*", "feature/*", "chore/*", "experiment/*", "spike/*"],
+      "env_vars": ["NODE_ENV=development", "ENV=dev", "ENVIRONMENT=dev"],
+      "path_hints": ["local", "dev", "sandbox"]
+    }
+  },
+  "triggers": {
+    "fix_keyword": {
+      "enabled": true,
+      "mode": "advisory",
+      "notify_n8n": false,
+      "description": "Ricorda le domande OODA. Non blocca mai."
+    },
+    "error_repeat": {
+      "enabled": true,
+      "threshold": 5,
+      "mode": "block",
+      "description": "Tollera 5 ripetizioni (sperimentazione accettata). Blocca alla 5a."
+    },
+    "no_options_question": {
+      "enabled": false,
+      "mode": "advisory",
+      "description": "Disabilitato in dev — la conversazione è esplorativa."
+    }
+  },
+  "abilities": [
+    "fix_keyword_advisory",
+    "error_repeat_5x"
+  ]
+}

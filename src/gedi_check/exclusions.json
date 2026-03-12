@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "description": "Tassonomia di esclusioni per i trigger GEDI. Arricchita nel tempo con i falsi positivi osservati.",
+    "format": "Per ogni categoria: lista di stringhe (case-insensitive, match parziale sul testo).",
+    "maintainer": "team-platform",
+    "last_updated": "2026-03-12",
+    "lesson": "Un trigger che non distingue contesto da contenuto genera rumore. Le esclusioni sono parte del design, non un cerotto."
+  },
+
+  "metalinguistic": {
+    "_note": "Parole trigger usate per descrivere se stesse o il concetto, non come proposta tecnica.",
+    "phrases": [
+      "fix (cerotto)",
+      "non è un fix",
+      "non si tratta di un fix",
+      "fix strutturale vs",
+      "fix vs cerotto",
+      "fix keyword",
+      "trigger fix",
+      "--trigger fix",
+      "fix keyword trigger",
+      "parola trigger",
+      "parola trigger rilevata"
+    ]
+  },
+
+  "technical_names": {
+    "_note": "Nomi di tool, comandi, file o variabili che contengono parole trigger per ragioni storiche.",
+    "phrases": [
+      "gedi-check",
+      "gedi_check",
+      "fix_keyword",
+      "check_fix_keyword",
+      "handle_fix",
+      "trigger 1",
+      "trigger fix",
+      "ooda fix",
+      "regola gedi fix",
+      "gedi fix"
+    ]
+  },
+
+  "documentation_context": {
+    "_note": "Frasi tipiche della documentazione tecnica dove 'fix' è descrittivo, non operativo.",
+    "phrases": [
+      "fix strutturale",
+      "fix antifragile",
+      "fix permanente",
+      "fix strutturale proposto",
+      "hotfix urgente — solo se",
+      "dopo il fix il sistema",
+      "il fix deve",
+      "il fix è incompleto",
+      "fix banale:",
+      "fix cerotto"
+    ]
+  },
+
+  "ooda_response": {
+    "_note": "Frasi che indicano che si sta già rispondendo al trigger GEDI (seconda linea di difesa dopo stop_hook_active).",
+    "phrases": [
+      "hai chiesto consiglio a gedi",
+      "consulta gedi",
+      "gedi ooda",
+      "nonno saggio",
+      "testuggine gedi",
+      "loop guard"
+    ]
+  }
+}
