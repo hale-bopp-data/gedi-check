@@ -70,15 +70,13 @@ tags: []
 # Commit (con Iron Dome pre-commit scan)
 ewctl commit
 
+# Install in dev mode
 pip install -e ".[dev]"
-
-
+# Run tests
 pytest tests/
-
-
+# Show active profile
 gedi-check --show-profile
-
-
+# Run check
 gedi-check check <file>
 ```
 
@@ -100,6 +98,7 @@ tests/               # Test suite
 pyproject.toml       # Package metadata (hatchling)
 ```
 
+## Regole specifiche gedi-check
 - Profili in `src/gedi_check/profiles/` — dev.json, ams.json, prod.json
 - Hook profiles in `hooks/{dev,ams,prod}/`
 - MAI modificare profili senza consultare GEDI manifest
@@ -151,7 +150,6 @@ bash /c/old/easyway/ado/scripts/ado-remote.sh pr-autolink-wi <pr_id> easyway-ged
 **MAI usare `az repos pr create`** — richiede login interattivo non disponibile.
 
 
-
 ## Regole assolute — MAI senza autorizzazione
 | # | Regola |
 |---|---|
@@ -196,4 +194,4 @@ Senza guida wiki, il lavoro è **incompleto**. Ref: `wiki/standards/agent-archit
 > Generato automaticamente dal Context Sync Engine (n8n workflow `context-sync`).
 > Master template: `easyway-wiki/templates/cursorrules-master.md`
 > Override: `easyway-wiki/templates/repo-overrides.yml`
-> Ultima sincronizzazione: 2026-03-14T03:01:59.172Z
+> Ultima sincronizzazione: 2026-03-14T06:00:03Z

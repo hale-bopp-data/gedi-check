@@ -29,15 +29,13 @@ che lavorano in questo repository.
 # Commit con Iron Dome
 ewctl commit
 
+# Install in dev mode
 pip install -e ".[dev]"
-
-
+# Run tests
 pytest tests/
-
-
+# Show active profile
 gedi-check --show-profile
-
-
+# Run check
 gedi-check check <file>
 ```
 
@@ -60,6 +58,7 @@ tests/               # Test suite
 pyproject.toml       # Package metadata (hatchling)
 ```
 
+## Regole specifiche gedi-check
 - Profili in `src/gedi_check/profiles/` — dev.json, ams.json, prod.json
 - Hook profiles in `hooks/{dev,ams,prod}/`
 - MAI modificare profili senza consultare GEDI manifest
@@ -97,7 +96,6 @@ bash /c/old/easyway/ado/scripts/ado-remote.sh pr-autolink-wi <pr_id> easyway-ged
 ```
 
 
-
 ---
 
 ## Regole assolute
@@ -115,4 +113,4 @@ bash /c/old/easyway/ado/scripts/ado-remote.sh pr-autolink-wi <pr_id> easyway-ged
 > Generato automaticamente dal Context Sync Engine (n8n workflow `context-sync`).
 > Master template: `easyway-wiki/templates/agents-master.md`
 > Override: `easyway-wiki/templates/repo-overrides.yml`
-> Ultima sincronizzazione: 2026-03-14T03:01:59.172Z
+> Ultima sincronizzazione: 2026-03-14T06:00:03Z
