@@ -1,0 +1,4 @@
+gedi-proxy-startup.vbs — REMOVED 2026-03-13
+Reason: CrowdStrike security alert. VBS auto-start scripts in Startup folder are blocked by corporate security policy.
+Do NOT recreate or reinstall any auto-start proxy scripts.
+If proxy is needed, run manually from terminal only.
