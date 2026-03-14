@@ -14,21 +14,18 @@ tags: []
 | Cosa | Python package `gedi-check` — profili (dev/ams/prod), trigger, proxy, CLI |
 | Linguaggio | Python 3.9+ |
 | Branch | `feat→main` (NO develop) — PR target: `main` |
-| Package version | v1.0.0 |
-| Install | `pip install -e .` o `pipx install .` |
+- **Package version**: v1.0.0
+- **Install**: `pip install -e .` o `pipx install .`
 
 ## Comandi rapidi
 ```bash
 ewctl commit
 # Install in dev mode
 pip install -e ".[dev]"
-
 # Run tests
 pytest tests/
-
 # Show active profile
 gedi-check --show-profile
-
 # Run check
 gedi-check check <file>
 ```
@@ -76,6 +73,7 @@ cd /c/old/easyway/gedi-check && git push -u origin feat/nome-descrittivo
 bash /c/old/easyway/ado/scripts/ado-remote.sh pr-create easyway-gedi-check feat/nome-descrittivo main "AB#NNN titolo" NNN
 ```
 
+
 ## Connessioni
 - **PAT/secrets**: SOLO su server `/opt/easyway/.env.secrets` — MAI in locale
 - **Guida**: `easyway-wiki/guides/connection-registry.md`
@@ -83,4 +81,4 @@ bash /c/old/easyway/ado/scripts/ado-remote.sh pr-create easyway-gedi-check feat/
 
 ---
 > Context Sync Engine | Master: `easyway-wiki/templates/agents-master.md`
-> Override: `easyway-wiki/templates/repo-overrides.yml` | Sync: 2026-03-14T16:00:00.000Z
+> Override: `easyway-wiki/templates/repo-overrides.yml` | Sync: 2026-03-14T18:00:03Z
