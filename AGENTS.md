@@ -82,4 +82,4 @@ bash /c/old/easyway/ado/scripts/ado-remote.sh pr-create easyway-gedi-check feat/
 
 ---
 > Context Sync Engine | Master: `easyway-wiki/templates/agents-master.md`
-> Override: `easyway-wiki/templates/repo-overrides.yml` | Sync: 2026-03-15T09:00:05Z
+> Override: `easyway-wiki/templates/repo-overrides.yml` | Sync: 2026-03-15T12:00:05Z
