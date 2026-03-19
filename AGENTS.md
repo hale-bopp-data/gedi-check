@@ -70,4 +70,4 @@ pyproject.toml       # Package metadata (hatchling)
 
 ---
 > Context Sync Engine | Master: `easyway-wiki/templates/agents-master.md`
-> Override: `easyway-wiki/templates/repo-overrides.yml` | Sync: 2026-03-19T12:00:13Z
+> Override: `easyway-wiki/templates/repo-overrides.yml` | Sync: 2026-03-19T15:00:22Z
