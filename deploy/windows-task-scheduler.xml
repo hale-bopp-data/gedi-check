@@ -45,7 +45,7 @@
     <Exec>
       <Command>python</Command>
       <Arguments>-m gedi_check.proxy --port 8765 --upstream https://api.anthropic.com</Arguments>
-      <WorkingDirectory>C:\old\easyway\gedi-check</WorkingDirectory>
+      <WorkingDirectory>C:\EW\easyway\gedi-check</WorkingDirectory>
     </Exec>
   </Actions>
 </Task>
