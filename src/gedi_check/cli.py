@@ -19,9 +19,14 @@ import os
 import sys
 import time
 
-from gedi_check import __version__
-from gedi_check import triggers, n8n_notify
-from gedi_check.profile import load_profile, resolve_profile_name, is_trigger_enabled, get_mode, get_threshold, profile_banner
+from gedi_check import __version__, n8n_notify, triggers
+from gedi_check.profile import (
+    get_mode,
+    get_threshold,
+    is_trigger_enabled,
+    load_profile,
+    profile_banner,
+)
 
 
 def _stderr(msg: str) -> None:
@@ -53,7 +58,11 @@ def handle_fix(args: argparse.Namespace) -> int:
     if notify:
         n8n_notify.notify_async(
             "fix_keyword",
-            {"keyword": keyword, "profile": profile.get("_meta", {}).get("profile"), "message_snippet": (args.message or "")[:300]},
+            {
+                "keyword": keyword,
+                "profile": profile.get("_meta", {}).get("profile"),
+                "message_snippet": (args.message or "")[:300],
+            },
         )
     # prod: block. dev/ams: advisory
     return 1 if mode == "block" else 0
@@ -83,7 +92,10 @@ def handle_error(args: argparse.Namespace) -> int:
             )
         )
         _stderr(f"  Profilo attivo: {profile_banner(profile)}")
-        n8n_notify.notify_async("error_repeat", {"exit_code": code, "count": count, "threshold": threshold})
+        n8n_notify.notify_async(
+            "error_repeat",
+            {"exit_code": code, "count": count, "threshold": threshold},
+        )
         time.sleep(0.1)
         return 1
     return 0
