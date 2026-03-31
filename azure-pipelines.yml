@@ -55,7 +55,7 @@ stages:
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
     jobs:
       - job: MirrorToGitHub
-        displayName: 'Push main → github.com/easyway-hale-bopp/gedi-check'
+        displayName: 'Push main → github.com/hale-bopp-data/gedi-check'
         pool:
           name: Default
         steps:
@@ -67,7 +67,7 @@ stages:
               git config user.email "ew-svc-azuredevops-agent@easyway.local"
               git config user.name "EasyWay CI"
               source /opt/easyway/.env.secrets
-              REMOTE="https://oauth2:${GITHUB_PAT}@github.com/easyway-hale-bopp/gedi-check.git"
+              REMOTE="https://oauth2:${GITHUB_PAT}@github.com/hale-bopp-data/gedi-check.git"
               git push "$REMOTE" HEAD:main --force
               echo "##[section]GitHub mirror: OK — $(git rev-parse --short HEAD)"
             displayName: 'git push → GitHub'
