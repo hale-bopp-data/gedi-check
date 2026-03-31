@@ -1,8 +1,8 @@
 """Tests per gedi_check.triggers"""
 
-import pytest
-from gedi_check.triggers import check_fix_keyword, check_no_options_question, record_error
 import os
+
+from gedi_check.triggers import check_fix_keyword, check_no_options_question, record_error
 
 os.environ["GEDI_SESSION"] = "test-pytest"
 

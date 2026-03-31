@@ -20,13 +20,10 @@ from __future__ import annotations
 import argparse
 import http.server
 import os
-import re
 import subprocess
-import sys
 import threading
 import urllib.error
 import urllib.request
-from pathlib import Path
 
 from gedi_check.triggers import FIX_KEYWORDS
 
@@ -41,7 +38,8 @@ def _notify(keyword: str, snippet: str) -> None:
         subprocess.Popen(
             [
                 "powershell", "-WindowStyle", "Hidden", "-Command",
-                f"[System.Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms') | Out-Null; "
+                "[System.Reflection.Assembly]::LoadWithPartialName"
+                "('System.Windows.Forms') | Out-Null; "
                 f"[System.Windows.Forms.MessageBox]::Show('{msg}','GEDI Guardrail',"
                 f"[System.Windows.Forms.MessageBoxButtons]::OK,"
                 f"[System.Windows.Forms.MessageBoxIcon]::Warning)",
