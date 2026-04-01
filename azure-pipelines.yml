@@ -55,20 +55,12 @@ stages:
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
     jobs:
       - job: MirrorToGitHub
-        displayName: 'Push main → github.com/easyway-data/easyway-gedi-check'
+        displayName: 'Mirror to GitHub (SSoT: factory-vcs.json)'
         pool:
           name: Default
         steps:
           - checkout: self
             fetchDepth: 0
-            persistCredentials: false
-          - script: |
-              set -e
-              git config user.email "ew-svc-azuredevops-agent@easyway.local"
-              git config user.name "EasyWay CI"
-              source /opt/easyway/.env.secrets
-              REMOTE="https://oauth2:${GITHUB_PAT}@github.com/easyway-data/easyway-gedi-check.git"
-              git push "$REMOTE" HEAD:main --force
-              echo "##[section]GitHub mirror: OK — $(git rev-parse --short HEAD)"
-            displayName: 'git push → GitHub'
+          - script: bash /opt/easyway/scripts/ci/mirror-github.sh easyway-gedi-check
+            displayName: 'Mirror to GitHub'
             continueOnError: true
